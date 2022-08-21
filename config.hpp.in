@@ -1,0 +1,21 @@
+#pragma once
+
+#include <string_view>
+
+namespace Config {
+using namespace std::string_view_literals;
+
+//! Server host.
+constexpr auto serverHost{"@SERVER_HOST@"sv};
+//! TCP-server port.
+constexpr auto serverServiceTcp{"@SERVER_SERVICE_TCP@"sv};
+//! UDP-server port.
+constexpr auto serverServiceUdp{"@SERVER_SERVICE_UDP@"sv};
+
+//! Enables or disables TCP.
+constexpr auto isTcpSupported = @SUPPORT_TCP@;
+//! Enables or disables UDP.
+constexpr auto isUdpSupported = @SUPPORT_UDP@;
+
+constexpr auto isManySupported = isTcpSupported || isUdpSupported;
+}
